@@ -1,0 +1,13 @@
+{
+  "name": "bearslairs-stripe",
+  "version": "0.0.1",
+  "description": "billing integration",
+  "main": "index.js",
+  "repository": "https://github.com/bearslairs/bearslairs-stripe",
+  "author": "Rob Thijssen",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "stripe": "^8.92.0"
+  }
+}
