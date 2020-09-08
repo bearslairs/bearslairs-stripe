@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "active": true,
+      "active": false,
       "name": "bike parking: bicycle",
       "description": "one bicycle space on the shared bike lock rack"
     },
@@ -24,6 +24,11 @@
       "active": true,
       "name": "mama bear: medium locker",
       "description": "5 square metre private locker storage room"
+    },
+    {
+      "active": true,
+      "name": "papa bear: small locker",
+      "description": "5.7 square metre private locker storage room"
     }
   ]
 }
