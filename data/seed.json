@@ -30,5 +30,115 @@
       "name": "papa bear: small locker",
       "description": "5.7 square metre private locker storage room"
     }
+  ],
+  "prices": [
+    {
+      "active": false,
+      "currency": "bgn",
+      "unit_amount": 2000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "standard bike parking: bicycle"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 1000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "corona bike parking: bicycle"
+    },
+    {
+      "active": false,
+      "currency": "bgn",
+      "unit_amount": 6000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "standard bike parking: enduro"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 3000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "corona bike parking: enduro"
+    },
+    {
+      "active": false,
+      "currency": "bgn",
+      "unit_amount": 8000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "standard bike parking: pro"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 4000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "corona bike parking: pro"
+    },
+    {
+      "active": false,
+      "currency": "bgn",
+      "unit_amount": 24000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "standard papa bear: small locker"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 12000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "corona papa bear: small locker"
+    },
+    {
+      "active": false,
+      "currency": "bgn",
+      "unit_amount": 20000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "standard mama bear: medium locker"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 10000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "corona mama bear: medium locker"
+    },
+    {
+      "active": false,
+      "currency": "bgn",
+      "unit_amount": 10000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "standard mama bear: small locker"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 5000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "corona mama bear: small locker"
+    }
   ]
 }

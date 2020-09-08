@@ -1,0 +1,19 @@
+{
+  "customers": [
+    {
+      "email": "test@example.com",
+      "name": "Wayne Gretsky",
+      "phone": "+3595556789",
+      "address": {
+        "line1": "Knights Lodge",
+        "city": "Bansko",
+        "state": "Blagoevgrad",
+        "country": "BG",
+        "postal_code": "2770"
+      },
+      "preferred_locales": [
+        "en-gb"
+      ]
+    }
+  ]
+}
