@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "active": true,
+      "name": "bike parking: bicycle",
+      "description": "one bicycle space on the shared bike lock rack"
+    },
+    {
+      "active": true,
+      "name": "bike parking: enduro",
+      "description": "one small motorcycle space in the shared bike parking room"
+    },
+    {
+      "active": true,
+      "name": "bike parking: pro",
+      "description": "one large motorcycle space in the shared bike parking room"
+    },
+    {
+      "active": true,
+      "name": "mama bear: small locker",
+      "description": "2.5 square metre private locker storage room"
+    },
+    {
+      "active": true,
+      "name": "mama bear: medium locker",
+      "description": "5 square metre private locker storage room"
+    }
+  ]
+}
