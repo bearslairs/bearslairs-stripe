@@ -3,32 +3,58 @@
     {
       "active": false,
       "name": "bike parking: bicycle",
-      "description": "one bicycle space on the shared bike lock rack"
+      "description": "one bicycle space on the shared bike lock rack",
+      "images": [
+        "https://raw.githubusercontent.com/bearslairs/bearslairs-react/2c34675/public/bike-rack-icon.png"
+      ]
     },
     {
       "active": true,
       "name": "bike parking: enduro",
-      "description": "one small motorcycle space in the shared bike parking room"
+      "description": "one small motorcycle space in the shared bike parking room",
+      "images": [
+        "https://raw.githubusercontent.com/bearslairs/bearslairs-react/2c34675/public/bike-small-icon.png"
+      ]
     },
     {
       "active": true,
       "name": "bike parking: pro",
-      "description": "one large motorcycle space in the shared bike parking room"
+      "description": "one large motorcycle space in the shared bike parking room",
+      "images": [
+        "https://raw.githubusercontent.com/bearslairs/bearslairs-react/2c34675/public/bike-large-icon.png"
+      ]
+    },
+    {
+      "active": true,
+      "name": "baby bear: tiny locker",
+      "description": "¼ of a square metre private locker storage room",
+      "images": [
+        "https://raw.githubusercontent.com/bearslairs/bearslairs-react/2c34675/public/lair-baby-icon.png"
+      ]
     },
     {
       "active": true,
       "name": "mama bear: small locker",
-      "description": "2.5 square metre private locker storage room"
+      "description": "2.5 square metre private locker storage room",
+      "images": [
+        "https://raw.githubusercontent.com/bearslairs/bearslairs-react/2c34675/public/lair-mama-icon.png"
+      ]
     },
     {
       "active": true,
       "name": "mama bear: medium locker",
-      "description": "5 square metre private locker storage room"
+      "description": "5 square metre private locker storage room",
+      "images": [
+        "https://raw.githubusercontent.com/bearslairs/bearslairs-react/2c34675/public/lair-mama-icon.png"
+      ]
     },
     {
       "active": true,
-      "name": "papa bear: small locker",
-      "description": "5.7 square metre private locker storage room"
+      "name": "papa bear: large locker",
+      "description": "5.7 square metre private locker storage room",
+      "images": [
+        "https://raw.githubusercontent.com/bearslairs/bearslairs-react/2c34675/public/lair-papa-icon.png"
+      ]
     }
   ],
   "prices": [
@@ -51,6 +77,15 @@
       "nickname": "corona bike parking: bicycle"
     },
     {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 11000,
+      "recurring": {
+        "interval": "year"
+      },
+      "nickname": "annual bike parking: bicycle"
+    },
+    {
       "active": false,
       "currency": "bgn",
       "unit_amount": 6000,
@@ -67,6 +102,15 @@
         "interval": "month"
       },
       "nickname": "corona bike parking: enduro"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 33000,
+      "recurring": {
+        "interval": "year"
+      },
+      "nickname": "annual bike parking: enduro"
     },
     {
       "active": false,
@@ -87,13 +131,22 @@
       "nickname": "corona bike parking: pro"
     },
     {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 44000,
+      "recurring": {
+        "interval": "year"
+      },
+      "nickname": "annual bike parking: pro"
+    },
+    {
       "active": false,
       "currency": "bgn",
       "unit_amount": 24000,
       "recurring": {
         "interval": "month"
       },
-      "nickname": "standard papa bear: small locker"
+      "nickname": "standard papa bear: large locker"
     },
     {
       "active": true,
@@ -102,7 +155,16 @@
       "recurring": {
         "interval": "month"
       },
-      "nickname": "corona papa bear: small locker"
+      "nickname": "corona papa bear: large locker"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 132000,
+      "recurring": {
+        "interval": "year"
+      },
+      "nickname": "annual papa bear: large locker"
     },
     {
       "active": false,
@@ -123,6 +185,15 @@
       "nickname": "corona mama bear: medium locker"
     },
     {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 110000,
+      "recurring": {
+        "interval": "year"
+      },
+      "nickname": "annual mama bear: medium locker"
+    },
+    {
       "active": false,
       "currency": "bgn",
       "unit_amount": 10000,
@@ -139,6 +210,42 @@
         "interval": "month"
       },
       "nickname": "corona mama bear: small locker"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 55000,
+      "recurring": {
+        "interval": "year"
+      },
+      "nickname": "annual mama bear: small locker"
+    },
+    {
+      "active": false,
+      "currency": "bgn",
+      "unit_amount": 3000,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "standard baby bear: tiny locker"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 1500,
+      "recurring": {
+        "interval": "month"
+      },
+      "nickname": "corona baby bear: tiny locker"
+    },
+    {
+      "active": true,
+      "currency": "bgn",
+      "unit_amount": 16500,
+      "recurring": {
+        "interval": "year"
+      },
+      "nickname": "annual baby bear: tiny locker"
     }
   ]
 }

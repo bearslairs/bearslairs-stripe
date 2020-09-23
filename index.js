@@ -9,8 +9,6 @@ let merged = { ...seed, ...mock };
 console.log(`discovered ${Object.keys(seed).length} seed entities.`);
 console.log(`discovered ${Object.keys(mock).length} mock entities.`);
 
-
-
 Object.keys(merged).forEach(entityPlural => {
   let entitySingular, entityIdentifier;
   switch (entityPlural) {
@@ -39,13 +37,27 @@ Object.keys(merged).forEach(entityPlural => {
         // seed/mock entity exists as a stripe entity
         let stripeEntity = stripeEntities.find(x => x[entityIdentifier] === entity[entityIdentifier]);
         console.log(`    - ${entitySingular}: "${entity[entityIdentifier]}" discovered in stripe with id: "${stripeEntity.id}".`);
-        if (Object.keys(entity).every(x => (((typeof entity[x] !== 'boolean') && (typeof entity[x] !== 'number') && (typeof entity[x] !== 'string')) || (entity[x] === stripeEntity[x])))) {
+        if (Object.keys(entity).every(x => 
+          (
+            // strings, numbers, booleans
+            (((typeof entity[x] === 'boolean') || (typeof entity[x] === 'number') || (typeof entity[x] !== 'string')) && (entity[x] === stripeEntity[x]))
+            // arrays of scalars
+            || ((Array.isArray(entity[x])) && (entity[x].length === stripeEntity[x].length && entity[x].every((value, index) => value === stripeEntity[x][index])))
+            // todo: implement object diff
+            || (typeof entity[x] === 'object')
+          )
+        )
+          ) {
           // seed/mock entity matches stripe entity
           console.log(`    - all ${entitySingular} properties match stripe ${entitySingular} properties.`);
         } else {
           // seed/mock entity differs from stripe entity
           console.log(`    - one or more ${entitySingular} properties differ from stripe ${entitySingular} properties. update queued...`);
           switch (entitySingular) {
+            case 'customer':
+              // customer properties for which update is not supported
+              delete entity.tax_id_data;
+              break;
             case 'price':
               // price properties for which update is not supported
               delete entity.currency;
@@ -71,7 +83,7 @@ Object.keys(merged).forEach(entityPlural => {
         switch (entitySingular) {
           case 'price':
             stripe.products.list({ limit: 100 }).then(x => x.data).then(products => {
-              entity.product = products.find(x => x.name === entity[entityIdentifier].replace(/^(standard|corona)\s/i, '')).id;
+              entity.product = products.find(x => x.name === entity[entityIdentifier].replace(/^(annual|corona|standard)\s/i, '')).id;
               stripe[entityPlural].create(entity).then(stripeEntityCreateResponse => {
                 // stripe entity create succeeded
                 console.log(`stripe ${entitySingular}: "${stripeEntityCreateResponse[entityIdentifier]}", created with id: "${stripeEntityCreateResponse.id}".`);
@@ -80,7 +92,7 @@ Object.keys(merged).forEach(entityPlural => {
                 console.log(`stripe ${entitySingular}: "${entity[entityIdentifier]}", create failed.`);
                 console.error(stripeEntityCreateError);
               });
-            });
+            }).catch(console.log);
             break;
           default:
             stripe[entityPlural].create(entity).then(stripeEntityCreateResponse => {
@@ -95,6 +107,6 @@ Object.keys(merged).forEach(entityPlural => {
         }
       }
     });
-  });
+  }).catch(console.log);
 });
 
