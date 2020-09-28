@@ -20,6 +20,18 @@ Object.keys(merged).forEach(entityPlural => {
       entityIdentifier = 'nickname';
       entitySingular = entityPlural.slice(0, -1);
       break;
+    case 'products':
+      entityIdentifier = 'name';
+      entitySingular = entityPlural.slice(0, -1);
+      break;
+    case 'promotionCodes':
+      entityIdentifier = 'code';
+      entitySingular = entityPlural.slice(0, -1);
+      break;
+    case 'taxRates':
+      entityIdentifier = 'display_name';
+      entitySingular = entityPlural.slice(0, -1);
+      break;
     default:
       entityIdentifier = 'name';
       entitySingular = entityPlural.slice(0, -1);
@@ -54,6 +66,15 @@ Object.keys(merged).forEach(entityPlural => {
           // seed/mock entity differs from stripe entity
           console.log(`    - one or more ${entitySingular} properties differ from stripe ${entitySingular} properties. update queued...`);
           switch (entitySingular) {
+            case 'coupon':
+              // coupon properties for which update is not supported
+              delete entity.id;
+              delete entity.percent_off;
+              delete entity.duration;
+              delete entity.duration_in_months;
+              delete entity.max_redemptions;
+              delete entity.redeem_by;
+              break;
             case 'customer':
               // customer properties for which update is not supported
               delete entity.tax_id_data;
@@ -64,13 +85,32 @@ Object.keys(merged).forEach(entityPlural => {
               delete entity.unit_amount;
               delete entity.recurring;
               break;
+            case 'promotionCode':
+              // price promotion code for which update is not supported
+              delete entity.coupon;
+              delete entity.code;
+              delete entity.restrictions;
+              delete entity.max_redemptions;
+              delete entity.expires_at;
+              break;
+            case 'taxRate':
+              // tax rate properties for which update is not supported
+              delete entity.inclusive;
+              delete entity.percentage;
+              break;
+
+              
           }
           stripe[entityPlural].update(
             stripeEntity.id,
             entity
           ).then(stripeEntityUpdateResponse => {
             // stripe entity update succeeded
-            console.log(`stripe ${entitySingular}: "${stripeEntityUpdateResponse[entityIdentifier]}", with id: "${stripeEntityUpdateResponse.id}" updated.`);
+            if (entityIdentifier in stripeEntityUpdateResponse) {
+              console.log(`stripe ${entitySingular}: "${stripeEntityUpdateResponse[entityIdentifier]}", with id: "${stripeEntityUpdateResponse.id}" updated.`);
+            } else {
+              console.log(`stripe ${entitySingular}, with id: "${stripeEntityUpdateResponse.id}" updated.`, entityIdentifier, stripeEntityUpdateResponse);
+            }
           }).catch(stripeEntityUpdateError => {
             // stripe entity update failed
             console.log(`stripe ${entitySingular}: "${stripeEntity[entityIdentifier]}", with id: "${stripeEntity.id}" update failed.`);

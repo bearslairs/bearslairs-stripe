@@ -247,5 +247,36 @@
       },
       "nickname": "annual baby bear: tiny locker"
     }
+  ],
+  "taxRates": [
+    {
+      "display_name": "VAT",
+      "description": "Value Added Tax",
+      "jurisdiction": "Bulgaria",
+      "percentage": 20,
+      "inclusive": false
+    }
+  ],
+  "coupons": [
+    {
+      "id": "early-bears",
+      "name": "early bears get the berries",
+      "percent_off": 20,
+      "duration": "repeating",
+      "duration_in_months": 12,
+      "max_redemptions": 10,
+      "redeem_by": 1640995199
+    }
+  ],
+  "promotionCodes": [
+    {
+      "coupon": "early-bears",
+      "code": "earlybears",
+      "restrictions": {
+        "first_time_transaction": true
+      },
+      "max_redemptions": 10,
+      "expires_at": 1609451999
+    }
   ]
 }
